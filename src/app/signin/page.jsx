@@ -59,7 +59,7 @@ const Page = () => {
         </div>
         {/*  Right Side  */}
         <div className="hidden lg:flex flex-1 items-center justify-center ">
-          <RightSide className={"min-h-[620px]"} />
+          <RightSide className={"min-h-[580px]"} />
         </div>
       </div>
     </Wrapper>

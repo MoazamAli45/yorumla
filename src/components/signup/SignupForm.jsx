@@ -2,6 +2,7 @@
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
+import PrimaryButton from "../shared/PrimaryButton";
 
 const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -143,14 +144,13 @@ const SignupForm = () => {
       </div>
 
       {/*  Button Submit */}
-      <button className="bg-primary rounded-full p-4 text-white mt-4 font-semibold ">
-        Sign Up
-      </button>
+
+      <PrimaryButton> Sign Up</PrimaryButton>
       <p className="text-grey font-normal text-center my-2">
         Already have an account?{" "}
         <Link
           href={"/signin"}
-          className="text-black-primary font-bold underline"
+          className="text-black-primary font-bold hover:text-primary transition-colors underline"
         >
           Sign In
         </Link>

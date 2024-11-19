@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const plusJakartaSans = localFont({
   src: [
@@ -24,8 +25,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${plusJakartaSans.variable} antialiased`}>
-        {children}
+      <body
+        className={`${plusJakartaSans.variable} antialiased dark:bg-black-primary  `}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

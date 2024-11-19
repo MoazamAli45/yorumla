@@ -1,3 +1,5 @@
+import Navbar from "@/components/shared/Navbar";
+
 export default function Home() {
-  return <div className="bg-red-50">Hello</div>;
+  return <Navbar />;
 }

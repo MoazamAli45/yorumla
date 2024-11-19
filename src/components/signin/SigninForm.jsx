@@ -2,6 +2,7 @@
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
+import PrimaryButton from "../shared/PrimaryButton";
 
 const SigninForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -76,19 +77,21 @@ const SigninForm = () => {
             Reminder for 30 days
           </label>
         </div>
-        <Link href={"/"} className="text-grey font-semibold">
+        <Link
+          href={"/forget-password"}
+          className="text-grey hover:text-primary  font-semibold transition-all"
+        >
           Forgot password?
         </Link>
       </div>
       {/*  Button Submit */}
-      <button className="bg-primary rounded-full p-4 text-white mt-4 font-semibold ">
-        Sign In
-      </button>
+
+      <PrimaryButton> Sign In</PrimaryButton>
       <p className="text-grey font-normal text-center my-2">
         Don’t have an account?{" "}
         <Link
           href={"/signup"}
-          className="text-black-primary font-bold underline"
+          className="text-black-primary hover:text-primary transition-colors font-bold underline"
         >
           Sign Up
         </Link>
