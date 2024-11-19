@@ -55,13 +55,13 @@ export default function Navbar() {
     <>
       <Link
         href="/"
-        className="text-lg font-medium text-black-primary dark:text-white  hover:text-primary transition-colors"
+        className="text-lg font-medium text-black-primary dark:text-white  hover:text-primary dark:hover:text-primary transition-colors"
       >
         Complaints
       </Link>
       <Link
         href="/"
-        className="text-lg font-medium text-black-primary dark:text-white hover:text-primary transition-colors"
+        className="text-lg font-medium text-black-primary dark:text-white hover:text-primary dark:hover:text-primary transition-colors"
       >
         Brands
       </Link>
@@ -101,18 +101,20 @@ export default function Navbar() {
               ref={searchInputRef}
               type="text"
               placeholder="Search..."
-              className={` border-none outline-none dark:bg-black-primary  py-2 px-4 w-full ${
+              className={` border-none outline-none bg-transparent  py-2 px-4 w-full ${
                 isSearchExpanded ? "opacity-100" : "opacity-0"
               } transition-opacity duration-300 ease-in-out`}
             />
             <button
               aria-label="Search"
-              className="flex items-center bg-white dark:bg-black-primary justify-center w-10 h-10 focus:outline-none"
+              className={`flex items-center ${
+                isSearchExpanded ? "bg-transparent" : "bg-white"
+              } dark:bg-black-primary justify-center w-10 h-10 focus:outline-none`}
               onClick={toggleSearch}
             >
               <Search
                 className={`size-[22px] text-black-primary dark:text-white ${
-                  !isSearchExpanded && "-translate-x-5"
+                  !isSearchExpanded && "-translate-x-5 bg-transparent"
                 }`}
               />
             </button>
@@ -195,7 +197,7 @@ export default function Navbar() {
               aria-label="Open menu"
               className="focus:outline-none"
             >
-              <Menu className="size-[22px] text-black-primary" />
+              <Menu className="size-[22px] text-black-primary dark:text-white" />
             </button>
           </div>
         ) : (
@@ -208,7 +210,7 @@ export default function Navbar() {
 
       {/* Drawer for small screens */}
       <div
-        className={`fixed top-0 left-0 h-full w-full bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-full bg-white dark:bg-black-primary shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
           isDrawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -232,7 +234,7 @@ export default function Navbar() {
               className="focus:outline-none"
               aria-label="Close menu"
             >
-              <X className="size-[22px] text-black-primary" />
+              <X className="size-[22px] text-black-primary dark:text-white" />
             </button>
           </div>
           <div className="flex flex-col gap-4">
@@ -246,7 +248,7 @@ export default function Navbar() {
       {/* Overlay */}
       {isDrawerOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-black  bg-opacity-50 z-40"
           onClick={toggleDrawer}
         ></div>
       )}
